@@ -1,3 +1,5 @@
+import csv
+
 pais = {
     "nombre": "Argentina",
     "poblacion": 45376763,
@@ -18,7 +20,6 @@ def menu():
     print("7. Mostrar todos")
     print("0. Salir")
 
-import csv
 
 def cargar_csv(nombre_archivo):
     paises = []
