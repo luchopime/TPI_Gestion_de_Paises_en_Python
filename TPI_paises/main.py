@@ -1,5 +1,5 @@
 from funciones import *
-
+from funciones_dania import *
 paises = cargar_csv("TPI_paises/paises.csv")
 
 while True:
