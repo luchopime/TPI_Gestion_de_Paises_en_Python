@@ -42,6 +42,7 @@ def cargar_csv(nombre_archivo):
 
     return paises
 
+#Opcion 3
 def buscar_pais(lista):
     nombre_buscado = input("Ingrese el nombre del pais: ").lower()
 
@@ -60,7 +61,7 @@ def buscar_pais(lista):
             
 #op 4
 
-
+#Opcion 5
 def ordenar_paises(lista):
 
     print("\n1. Ordenar por nombre")
@@ -88,6 +89,7 @@ def ordenar_paises(lista):
     for pais in ordenados:
         print(pais)      
 
+#Opcion 6
 def estadisticas(lista):
 
     mayor = max(lista, key=lambda pais: pais["poblacion"])
@@ -135,6 +137,7 @@ def estadisticas(lista):
     for continente, cantidad in continentes.items():
         print(f"{continente}: {cantidad}")      
 
+#Opcion 7 
 def mostrar_todos(lista):
 
     for pais in lista:
