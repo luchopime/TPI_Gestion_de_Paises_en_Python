@@ -1,5 +1,6 @@
 from funciones import *
-from funciones_dania import *
+from opcion1 import agregar_pais
+
 paises = cargar_csv("TPI_paises/paises.csv")
 
 while True:
@@ -9,6 +10,7 @@ while True:
 
     if opcion == "1":
         print("Agregar pais")
+        agregar_pais(paises)
 
     elif opcion == "2":
         print("Actualizar pais")
