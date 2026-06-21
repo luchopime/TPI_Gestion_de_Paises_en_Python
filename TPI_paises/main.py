@@ -1,5 +1,6 @@
 from funciones import *
 from opcion1 import *
+from opcion2 import *
 
 paises = cargar_csv("TPI_paises/paises.csv")
 
@@ -14,6 +15,7 @@ while True:
 
     elif opcion == "2":
         print("Actualizar pais")
+        actualizar_pais(paises)
 
     elif opcion == "0":
         print("Fin del programa")
