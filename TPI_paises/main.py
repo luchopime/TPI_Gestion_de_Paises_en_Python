@@ -1,5 +1,5 @@
 from funciones import *
-from opcion1 import agregar_pais
+from opcion1 import *
 
 paises = cargar_csv("TPI_paises/paises.csv")
 

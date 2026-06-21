@@ -51,3 +51,6 @@ def agregar_pais(paises):
     paises.append(nuevo_pais)
 
     print("¡País agregado correctamente!")
+
+    if __name__=="__main__":
+        agregar_pais(paises)
