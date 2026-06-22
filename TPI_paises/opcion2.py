@@ -1,12 +1,12 @@
 def actualizar_pais(paises):
-    nombre_pais = input("Ingrese un país nuevo: ").strip().title()
+    nombre_pais = input("Ingrese el país que desea actualizar: ").strip().title()
     encontrado = False
 
     for pais in paises:
-        if pais["nombre"].lower() == nombre_pais.lower():
+        if pais["nombre"].strip().lower() == nombre_pais.strip().lower():
             encontrado = True
             while True:
-                nueva_poblacion = input(f"Ingrese la nueva población de {nombre_pais}")
+                nueva_poblacion = input(f"Ingrese la nueva población de {nombre_pais}: ")
                 if nueva_poblacion.isdigit() and int(nueva_poblacion) > 0:
                     nueva_poblacion = int(nueva_poblacion)
                     break

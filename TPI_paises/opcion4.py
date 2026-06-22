@@ -1,7 +1,7 @@
 def filtrar_pais(paises):
     
     print('''
-    ---FILTRAR CONTINENTES---
+    ---FILTRAR PAISES---
     1. Continente
     2. Población
     3. Superficie
