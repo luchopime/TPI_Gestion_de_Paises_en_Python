@@ -1,5 +1,5 @@
 def filtrar_pais(paises):
-    
+
     print('''
     ---FILTRAR PAISES---
     1. Continente
@@ -10,89 +10,110 @@ def filtrar_pais(paises):
     opcion = input("Seleccione una opción: ")
 
     if opcion == "1":
+
         while True:
             continente = input("Ingrese un continente: ").strip().title()
+
             if not continente:
                 print("ERROR! El campo no puede estar completamente vacío.")
+
             elif not continente.replace(" ", "").isalpha():
                 print("ERROR! No se permiten números ni caracteres especiales.")
+
             else:
                 break
+
+        encontrado = False
+
         for pais in paises:
+
             if pais["continente"].lower() == continente.lower():
-                print(pais)
+
+                print(
+                    f"{pais['nombre']} - "
+                    f"Poblacion: {pais['poblacion']} - "
+                    f"Superficie: {pais['superficie']} km² - "
+                    f"Continente: {pais['continente']}"
+                )
+
                 encontrado = True
 
         if not encontrado:
-            print("No se encontraron países de ese continente.")
+            print("No se encontraron países para ese continente.")
+
 
     elif opcion == "2":
 
         while True:
-            minimo = input("Ingrese la población mínima: ")
-
-            if minimo.isdigit() and int(minimo) >= 0:
+            minimo = input("Ingrese población mínima: ")
+            if minimo.isdigit():
                 minimo = int(minimo)
                 break
-            else:
-                print("ERROR! Ingrese un número válido.")
+            print("ERROR! Debe ser un número válido.")
 
         while True:
-            maximo = input("Ingrese la población máxima: ")
-
-            if maximo.isdigit() and int(maximo) >= 0:
+            maximo = input("Ingrese población máxima: ")
+            if maximo.isdigit():
                 maximo = int(maximo)
                 break
-            else:
-                print("ERROR! Ingrese un número válido.")
+            print("ERROR! Debe ser un número válido.")
 
         if minimo > maximo:
-            print("ERROR! La población mínima no puede ser mayor que la máxima.")
+            print("ERROR! El mínimo no puede ser mayor que el máximo.")
+            return
 
-        else:
-            encontrado = False
+        encontrado = False
 
-            for pais in paises:
-                if minimo <= pais["poblacion"] <= maximo:
-                    print(pais)
-                    encontrado = True
+        for pais in paises:
+            if minimo <= pais["poblacion"] <= maximo:
+                print(
+                    f"{pais['nombre']} - "
+                    f"Poblacion: {pais['poblacion']} - "
+                    f"Superficie: {pais['superficie']} km² - "
+                    f"Continente: {pais['continente']}"
+                )
+                encontrado = True
 
-            if not encontrado:
-                print("No se encontraron países en ese rango.")
+        if not encontrado:
+            print("No se encontraron países en ese rango.")
+
 
     elif opcion == "3":
 
         while True:
-            minimo = input("Ingrese la superficie mínima: ")
-
+            minimo = input("Ingrese superficie mínima: ")
             if minimo.isdigit() and int(minimo) >= 0:
                 minimo = int(minimo)
                 break
-            else:
-                print("ERROR! Ingrese un número válido.")
+            print("ERROR! Debe ser un número válido.")
 
         while True:
-            maximo = input("Ingrese la superficie máxima: ")
-
-            if maximo.isdigit() and int(maximo) >= 0:
+            maximo = input("Ingrese superficie máxima: ")
+            if maximo.isdigit():
                 maximo = int(maximo)
                 break
-            else:
-                print("ERROR! Ingrese un número válido.")
+            print("ERROR! Debe ser un número válido.")
 
         if minimo > maximo:
-            print("ERROR! La superficie mínima no puede ser mayor que la máxima.")
+            print("ERROR! El mínimo no puede ser mayor que el máximo.")
+            return    
 
-        else:
-            encontrado = False
+        encontrado = False
 
-            for pais in paises:
-                if minimo <= pais["superficie"] <= maximo:
-                    print(pais)
-                    encontrado = True
+        for pais in paises:
+            if minimo <= pais["superficie"] <= maximo:
 
-            if not encontrado:
-                print("No se encontraron países en ese rango.")
+                print(
+                    f"{pais['nombre']} - "
+                    f"Poblacion: {pais['poblacion']} - "
+                    f"Superficie: {pais['superficie']} km² - "
+                    f"Continente: {pais['continente']}"
+                )
+
+                encontrado = True
+
+        if not encontrado:
+            print("No se encontraron países en ese rango.")
 
     else:
         print("Opción inválida.")

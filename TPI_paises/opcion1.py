@@ -1,25 +1,20 @@
 def agregar_pais(paises):
-    while  True:
+
+    while True:
         nombre_pais = input("Ingrese un país: ").strip().title()
 
         if not nombre_pais:
-            print("ERROR! El campo no puede estar completamente vacío.")
+            print("ERROR! El campo no puede estar vacío.")
             continue
 
-        elif not nombre_pais.replace(" ", "").isalpha():
+        elif not all(part.isalpha() for part in nombre_pais.split()):
             print("ERROR! No se permiten números ni caracteres especiales.")
             continue
 
-        existe = False
-
-        for pais in paises:
-            if pais["nombre"].strip().lower() == nombre_pais.strip().lower():
-                existe = True
-                break
-
-        if existe:
+        if any(pais["nombre"].lower() == nombre_pais.lower() for pais in paises):
             print("Ese país ya existe.")
             continue
+
         break
 
     while True:
@@ -27,33 +22,29 @@ def agregar_pais(paises):
         if poblacion.isdigit() and int(poblacion) > 0:
             poblacion = int(poblacion)
             break
-        else:
-            print("ERROR! Debe ingresar un número entero positivo.")
+        print("ERROR! Debe ingresar un número entero positivo.")
 
     while True:
         superficie = input(f"Ingrese la superficie de {nombre_pais}: ")
         if superficie.isdigit() and int(superficie) > 0:
             superficie = int(superficie)
             break
-        else:
-            print("ERROR! Debe ingresar un número entero positivo.")
+        print("ERROR! Debe ingresar un número entero positivo.")
 
     while True:
         continente = input(f"Ingrese el continente de {nombre_pais}: ").strip().title()
         if not continente:
-            print("ERROR! El campo no puede estar completamente vacío.")
+            print("ERROR! El campo no puede estar vacío.")
         elif not continente.replace(" ", "").isalpha():
             print("ERROR! No se permiten números ni caracteres especiales.")
         else:
             break
 
-    nuevo_pais ={
+    paises.append({
         "nombre": nombre_pais,
         "poblacion": poblacion,
         "superficie": superficie,
         "continente": continente
-    }
-
-    paises.append(nuevo_pais)
+    })
 
     print("¡País agregado correctamente!")
