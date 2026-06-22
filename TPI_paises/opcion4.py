@@ -96,7 +96,3 @@ def filtrar_pais(paises):
 
     else:
         print("Opción inválida.")
-
-        
-    if __name__=="__main__":
-        filtrar_pais(paises)

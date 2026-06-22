@@ -34,6 +34,3 @@ def actualizar_pais(paises):
 
     if not encontrado:
         print("ERROR! El país ingresado no existe.")
-
-    if __name__=="__main__":
-        actualizar_pais(paises)
