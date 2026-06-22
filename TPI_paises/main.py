@@ -13,9 +13,18 @@ while True:
     elif opcion == "2":
         print("Actualizar pais")
 
+    elif opcion == "3":
+        buscar_pais(paises)
+
+    elif opcion == "5":
+        ordenar_paises(paises)
+
+    elif opcion == "6":
+        estadisticas(paises)
+
+    elif opcion == "7":
+        mostrar_todos(paises)
+
     elif opcion == "0":
         print("Fin del programa")
-        break
-
-    else:
-        print("Opcion invalida")
+        break    
