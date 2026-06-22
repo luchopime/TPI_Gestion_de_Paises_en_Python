@@ -34,34 +34,8 @@ while True:
     
     elif opcion == "7":
         print("Mostrar todos")
-
-    elif opcion == "3":
-        print("Buscar pais")
-
-    elif opcion == "4":
-        print("Filtrar paises")
-
-    elif opcion == "5":
-        print("Ordenar paises")    
-
-    elif opcion == "6":
-        print("Estadisticas")
-    
-    elif opcion == "7":
-        print("Mostrar todos")
-
-    elif opcion == "3":
-        buscar_pais(paises)
-
-    elif opcion == "5":
-        ordenar_paises(paises)
-
-    elif opcion == "6":
-        estadisticas(paises)
-
-    elif opcion == "7":
-        mostrar_todos(paises)
-
+        mostrar_todos(paises)   
+        
     elif opcion == "0":
         print("Fin del programa")
         break    
