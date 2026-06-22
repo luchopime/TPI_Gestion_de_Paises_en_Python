@@ -26,11 +26,11 @@ def actualizar_pais(paises):
                     print("ERROR! Debe ingresar un número entero positivo.")
 
             # ACTUALIZAR EL DICCIONARIO
-                pais["poblacion"] = nueva_poblacion
-                pais["superficie"] = nueva_superficie
+            pais["poblacion"] = nueva_poblacion
+            pais["superficie"] = nueva_superficie
 
-                print("¡País actualizado correctamente!")
-                break
+            print("¡País actualizado correctamente!")
+            break
 
     if not encontrado:
         print("ERROR! El país ingresado no existe.")

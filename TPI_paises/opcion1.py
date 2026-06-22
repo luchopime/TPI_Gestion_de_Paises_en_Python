@@ -36,14 +36,19 @@ def agregar_pais(paises):
 
     while True:
         continente = input(f"Ingrese el continente de {nombre_pais}: ").strip().title()
-        if continente != "":
-            break
+        if not continente:
+            print("Error: El campo no puede estar completamente vacío.")
+        elif " " in continente:
+            print("Error: No se permiten espacios en blanco.")
+        elif not continente.isalpha():
+            print("Error: No se permiten números ni caracteres especiales.")
         else:
-            print("ERROR! El continente no puede estar vacío.")
+            print("¡Continente válido!")
+            break
 
     nuevo_pais ={
         "nombre": nombre_pais,
-        "población": poblacion,
+        "poblacion": poblacion,
         "superficie": superficie,
         "continente": continente
     }
