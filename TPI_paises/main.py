@@ -1,7 +1,6 @@
 from funciones import *
 from opcion1 import *
 from opcion2 import *
-
 from opcion4 import *
 
 paises = cargar_csv("TPI_paises/paises.csv")
@@ -18,24 +17,30 @@ while True:
     elif opcion == "2":
         print("Actualizar pais")
         actualizar_pais(paises)
-    
+
     elif opcion == "3":
         print("Buscar pais")
+        buscar_pais(paises)
 
     elif opcion == "4":
         print("Filtrar paises")
         filtrar_pais(paises)
 
     elif opcion == "5":
-        print("Ordenar paises")    
+        print("Ordenar paises")
+        ordenar_paises(paises)
 
     elif opcion == "6":
         print("Estadisticas")
-    
+        estadisticas(paises)
+
     elif opcion == "7":
         print("Mostrar todos")
-        mostrar_todos(paises)   
-        
+        mostrar_todos(paises)
+
     elif opcion == "0":
         print("Fin del programa")
-        break    
+        break
+
+    else:
+        print("Opcion invalida")
