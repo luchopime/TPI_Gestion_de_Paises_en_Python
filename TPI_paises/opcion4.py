@@ -13,13 +13,10 @@ def filtrar_pais(paises):
         while True:
             continente = input("Ingrese un continente: ").strip().title()
             if not continente:
-                print("Error: El campo no puede estar completamente vacío.")
-            elif " " in continente:
-                print("Error: No se permiten espacios en blanco.")
-            elif not continente.isalpha():
-                print("Error: No se permiten números ni caracteres especiales.")
+                print("ERROR! El campo no puede estar completamente vacío.")
+            elif not continente.replace(" ", "").isalpha():
+                print("ERROR! No se permiten números ni caracteres especiales.")
             else:
-                print("¡Continente válido!")
                 break
         for pais in paises:
             if pais["continente"].lower() == continente.lower():

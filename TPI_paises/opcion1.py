@@ -2,22 +2,26 @@ def agregar_pais(paises):
     while  True:
         nombre_pais = input("Ingrese un país: ").strip().title()
 
-        if nombre_pais == "":
-            print("ERROR! El país no debe estar vacío!")
+        if not nombre_pais:
+            print("ERROR! El campo no puede estar completamente vacío.")
+            continue
+
+        elif not nombre_pais.replace(" ", "").isalpha():
+            print("ERROR! No se permiten números ni caracteres especiales.")
             continue
 
         existe = False
 
         for pais in paises:
-            if pais["nombre"].lower() == nombre_pais.lower():
+            if pais["nombre"].strip().lower() == nombre_pais.strip().lower():
                 existe = True
                 break
 
         if existe:
             print("Ese país ya existe.")
-        else:
-            break
-            
+            continue
+        break
+
     while True:
         poblacion = input(f"Ingrese la población de {nombre_pais}: ")
         if poblacion.isdigit() and int(poblacion) > 0:
@@ -37,13 +41,10 @@ def agregar_pais(paises):
     while True:
         continente = input(f"Ingrese el continente de {nombre_pais}: ").strip().title()
         if not continente:
-            print("Error: El campo no puede estar completamente vacío.")
-        elif " " in continente:
-            print("Error: No se permiten espacios en blanco.")
-        elif not continente.isalpha():
-            print("Error: No se permiten números ni caracteres especiales.")
+            print("ERROR! El campo no puede estar completamente vacío.")
+        elif not continente.replace(" ", "").isalpha():
+            print("ERROR! No se permiten números ni caracteres especiales.")
         else:
-            print("¡Continente válido!")
             break
 
     nuevo_pais ={
