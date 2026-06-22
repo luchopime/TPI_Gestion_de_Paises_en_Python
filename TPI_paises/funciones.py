@@ -61,8 +61,12 @@ def buscar_pais(lista):
             
 #op 4
 
-#Opcion 5
+# Opcion 5
 def ordenar_paises(lista):
+
+    if len(lista) == 0:
+        print("No hay paises cargados.")
+        return
 
     print("\n1. Ordenar por nombre")
     print("2. Ordenar por poblacion")
@@ -70,27 +74,60 @@ def ordenar_paises(lista):
 
     opcion = input("Seleccione una opcion: ")
 
+    print("\n1. Ascendente")
+    print("2. Descendente")
+
+    orden = input("Seleccione el tipo de orden: ")
+
+    reverse = False
+
+    if orden == "2":
+        reverse = True
+
     if opcion == "1":
 
-        ordenados = sorted(lista, key=lambda pais: pais["nombre"])
+        ordenados = sorted(
+            lista,
+            key=lambda pais: pais["nombre"],
+            reverse=reverse
+        )
 
     elif opcion == "2":
 
-        ordenados = sorted(lista, key=lambda pais: pais["poblacion"])
+        ordenados = sorted(
+            lista,
+            key=lambda pais: pais["poblacion"],
+            reverse=reverse
+        )
 
     elif opcion == "3":
 
-        ordenados = sorted(lista, key=lambda pais: pais["superficie"])
+        ordenados = sorted(
+            lista,
+            key=lambda pais: pais["superficie"],
+            reverse=reverse
+        )
 
     else:
         print("Opcion invalida")
         return
 
-    for pais in ordenados:
-        print(pais)      
+    print("\n===== PAISES ORDENADOS =====")
 
-#Opcion 6
+    for pais in ordenados:
+        print(
+            f"{pais['nombre']} - "
+            f"Poblacion: {pais['poblacion']} - "
+            f"Superficie: {pais['superficie']} km² - "
+            f"Continente: {pais['continente']}"
+        )      
+
+# Opcion 6
 def estadisticas(lista):
+
+    if len(lista) == 0:
+        print("No hay paises cargados.")
+        return
 
     mayor = max(lista, key=lambda pais: pais["poblacion"])
     menor = min(lista, key=lambda pais: pais["poblacion"])
@@ -117,25 +154,27 @@ def estadisticas(lista):
     print("\n===== ESTADISTICAS =====")
 
     print(
-        f"Mayor poblacion: {mayor['nombre']} ({mayor['poblacion']})"
+        f"Pais con mayor poblacion: {mayor['nombre']} "
+        f"({mayor['poblacion']:,})"
     )
 
     print(
-        f"Menor poblacion: {menor['nombre']} ({menor['poblacion']})"
+        f"Pais con menor poblacion: {menor['nombre']} "
+        f"({menor['poblacion']:,})"
     )
 
     print(
-        f"Promedio poblacion: {promedio_poblacion:.2f}"
+        f"Promedio de poblacion: {promedio_poblacion:,.2f}"
     )
 
     print(
-        f"Promedio superficie: {promedio_superficie:.2f}"
+        f"Promedio de superficie: {promedio_superficie:,.2f} km²"
     )
 
     print("\nCantidad de paises por continente:")
 
     for continente, cantidad in continentes.items():
-        print(f"{continente}: {cantidad}")      
+        print(f"- {continente}: {cantidad}")
 
 #Opcion 7 
 def mostrar_todos(lista):
