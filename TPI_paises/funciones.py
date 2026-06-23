@@ -1,4 +1,5 @@
 import csv
+print("CSV cargado correctamente")  
 
 pais = {
     "nombre": "Argentina",
